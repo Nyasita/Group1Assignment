@@ -16,10 +16,10 @@ gunzip protein.fa.gz
 awk '{RS=">";FS="\n"}; {if ($1~/uncharacterized/) print RS$0}' protein.fa > uncharacterized.fa
 
 #QN4:create a clean FASTA file without uncharacterized sequences
-grep -v "uncharacterized" protein.fa > clean.fa  #alternatively the command awk '{RS=""}{gsub(/\n/," ", $0) print $0}' can be used for this question
+grep -v "uncharacterized" protein.fa > clean.fa  
 
 #QN5:create a new file which only contains raw sequences without the identifying information, or new lines
-grep -v ">" protein.fa | tr -d "\n" > oneline.fa 
+grep -v ">" protein.fa | tr -d "\n" > oneline.fa #alternatively the command awk '{RS=""}{gsub(/\n/," ", $0) print $0}' can be used for this question
 
 #QN6:Number of amino acids are in this new file
 wc -c oneline.fa
